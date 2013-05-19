@@ -18,6 +18,8 @@ program :help_formatter, :compact
 
 default_command :help
 
+global_option '--verbose'
+
 require 'xcode-download/xcode-versions'
 require 'xcode-download/helpers'
 require 'xcode-download/agent'

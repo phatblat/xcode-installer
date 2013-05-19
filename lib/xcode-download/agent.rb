@@ -3,7 +3,7 @@ require 'security'
 
 module XcodeDownload
   class Agent < ::Mechanize
-    attr_accessor :username, :password, :team
+    attr_accessor :username, :password, :verbose
 
     HOST = "developer.apple.com"
 
@@ -16,43 +16,53 @@ module XcodeDownload
     end
 
     def download(xcode_url)
-      puts 'Made it into the download method!'
-
       adc_login_url = 'https://daw.apple.com/cgi-bin/WebObjects/DSAuthWeb.woa/wa/login?appIdKey=d4f7d769c2abecc664d0dadfed6a67f943442b5e9c87524d4587a95773750cea&path=%2F%2Fdownloads%2Findex.action'
       downloads_url = 'https://developer.apple.com/downloads/index.action'
 
       begin
         # Request login response
-        puts "\n>>> Login response >>>"
+        puts "\n>>> Login response >>>" if @verbose
         response = get(adc_login_url)
-        puts "status code: #{response.code}\n"
-        pp response
-        puts cookie_jar.jar
+        if @verbose
+          puts "status code: #{response.code}\n"
+          pp response
+          puts cookie_jar.jar
+        end
 
         # Submit login form
-        puts "\n>>> Submit Login Form >>>"
+        puts "\n>>> Submit Login Form >>>" if @verbose
         form = response.form_with(:name => 'appleConnectForm')
         form.theAccountName = username
         form.theAccountPW = password
         response = form.submit
-        puts "status code: #{response.code}\n"
-        pp response
-        puts cookie_jar.jar
+        if @verbose
+          puts "status code: #{response.code}\n"
+          pp response
+          puts cookie_jar.jar
+        end
 
         # Request downloads response
-        puts "\n>>> Downloads >>>"
+        puts "\n>>> Downloads >>>" if @verbose
         response = get(downloads_url)
-        puts "status code: #{response.code}\n"
-        pp response
-        puts cookie_jar.jar
+        if @verbose
+          puts "status code: #{response.code}\n"
+          pp response
+          puts cookie_jar.jar
+        end
 
         # Download
-        puts "\n>>> Xcode >>>"
+        puts "\n>>> Xcode >>>" if @verbose
 
         # HEAD request for testing
         response = head(xcode_url)
-        puts "status code: #{response.code}\n"
-        pp response
+        if @verbose
+          puts "status code: #{response.code}\n"
+          pp response
+        else
+          puts "filename: #{response.filename}"
+          puts "size: #{response.header['content-length']}"
+          puts "last-modified: #{response.header['last-modified']}"
+        end
 
         # GET request for actual download
         # pluggable_parser.default = Mechanize::Download

@@ -9,6 +9,7 @@ command :'download' do |c|
 
     puts "Downloading Xcode #{xcode_version}"
 
+    agent.verbose = options.verbose
     try{agent.download(xcode_url)}
   end
 end
