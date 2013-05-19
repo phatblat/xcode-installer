@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
+require 'commander/import'
+# require 'terminal-table'
+# require 'term/ansicolor'
+
 require 'xcode-download'
 
 HighLine.track_eof = false # Fix for built-in Ruby
