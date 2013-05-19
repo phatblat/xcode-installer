@@ -19,4 +19,6 @@ program :help_formatter, :compact
 default_command :help
 
 require 'xcode-download/xcode-versions'
-require 'xcode-download/commands/list'
+require 'xcode-download/helpers'
+require 'xcode-download/agent'
+require 'xcode-download/commands'
