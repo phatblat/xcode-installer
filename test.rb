@@ -12,12 +12,6 @@ HOST = "developer.apple.com"
 pw = Security::InternetPassword.find(:server => HOST)
 username, password = pw.attributes['acct'], pw.password if pw
 
-class HeadRequest < Mechanize::FileRequest
-    def get_method
-        return "HEAD"
-    end
-end
-
 begin
   agent = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Safari'}
 
@@ -51,8 +45,6 @@ begin
   # HEAD request for testing
   response = agent.head(xcode_url)
   puts "status code: #{response.code}\n"
-  puts "content-length: #{response.body.length}"
-  puts "headers: #{response.header.keys}"
   pp response
 
   # GET request for actual download
