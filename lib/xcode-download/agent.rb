@@ -15,12 +15,11 @@ module XcodeDownload
       @username, @password = pw.attributes['acct'], pw.password if pw
     end
 
-    def download
+    def download(xcode_url)
       puts 'Made it into the download method!'
 
       adc_login_url = 'https://daw.apple.com/cgi-bin/WebObjects/DSAuthWeb.woa/wa/login?appIdKey=d4f7d769c2abecc664d0dadfed6a67f943442b5e9c87524d4587a95773750cea&path=%2F%2Fdownloads%2Findex.action'
       downloads_url = 'https://developer.apple.com/downloads/index.action'
-      xcode_url = XcodeDownload::XcodeVersions::GUI[XcodeDownload::XcodeVersions::LATEST]
 
       begin
         # Request login response

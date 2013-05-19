@@ -4,6 +4,11 @@ command :'download' do |c|
   c.description = ''
 
   c.action do |args, options|
-    try{agent.download}
+    xcode_version = XcodeDownload::XcodeVersions::LATEST
+    xcode_url = XcodeDownload::XcodeVersions::GUI[xcode_version]
+
+    puts "Downloading Xcode #{xcode_version}"
+
+    try{agent.download(xcode_url)}
   end
 end
