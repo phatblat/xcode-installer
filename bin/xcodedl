@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'xcode-download'
+
+HighLine.track_eof = false # Fix for built-in Ruby
+Signal.trap("INT") {} # Suppress backtrace when exiting command
+
+program :version, XcodeDownload::VERSION
+program :description, 'A command-line interface for downloading Xcode'
+
+program :help, 'Author', 'Ben Chatelain <benchatelain@gmail.com>'
+program :help, 'Website', 'https://phatblat.com'
+program :help_formatter, :compact
+
+default_command :help
+
+require 'xcode-download/xcode-versions'
