@@ -1,5 +1,6 @@
 command :'download' do |c|
-  c.syntax = 'xcodedl download'
+  c.syntax = 'xcodedl download [options]'
+  c.option '--dry-run', 'Enables a HEAD request instead of downloading the file'
   c.summary = 'Initiates the download'
   c.description = ''
 
@@ -10,6 +11,7 @@ command :'download' do |c|
     puts "Downloading Xcode #{xcode_version}"
 
     agent.verbose = options.verbose
+    agent.dry_run = options.dry_run
     try{agent.download(xcode_url)}
   end
 end

@@ -3,7 +3,7 @@ require 'security'
 
 module XcodeDownload
   class Agent < ::Mechanize
-    attr_accessor :username, :password, :verbose
+    attr_accessor :username, :password, :verbose, :dry_run
 
     HOST = "developer.apple.com"
 
@@ -53,22 +53,24 @@ module XcodeDownload
         # Download
         puts "\n>>> Xcode >>>" if @verbose
 
-        # HEAD request for testing
-        response = head(xcode_url)
-        if @verbose
-          puts "status code: #{response.code}\n"
-          pp response
+        if @dry_run
+          # HEAD request for testing
+          response = head(xcode_url)
+          if @verbose
+            puts "status code: #{response.code}\n"
+            pp response
+          else
+            puts "filename: #{response.filename}"
+            puts "size: #{response.header['content-length']}"
+            puts "last-modified: #{response.header['last-modified']}"
+          end
         else
-          puts "filename: #{response.filename}"
-          puts "size: #{response.header['content-length']}"
-          puts "last-modified: #{response.header['last-modified']}"
+          # GET request for actual download
+          pluggable_parser.default = Mechanize::Download
+          file = get(xcode_url)
+          file.save
+          puts file.filename
         end
-
-        # GET request for actual download
-        # pluggable_parser.default = Mechanize::Download
-        # file = get(xcode_url)
-        # file.save
-        # puts file.filename
 
       rescue Mechanize::ResponseCodeError => exception
         if exception.response_code == '403'
