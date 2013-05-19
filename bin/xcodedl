@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'commander/import'
-# require 'terminal-table'
+require 'terminal-table'
 # require 'term/ansicolor'
 
 require 'xcode-download'
@@ -19,3 +19,4 @@ program :help_formatter, :compact
 default_command :help
 
 require 'xcode-download/xcode-versions'
+require 'xcode-download/commands/list'
