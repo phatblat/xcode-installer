@@ -15,8 +15,8 @@ module XcodeDownload
     end
 
     def download(xcode_url)
-      adc_login_url = 'https://daw.apple.com/cgi-bin/WebObjects/DSAuthWeb.woa/wa/login?appIdKey=d4f7d769c2abecc664d0dadfed6a67f943442b5e9c87524d4587a95773750cea&path=%2F%2Fdownloads%2Findex.action'
-      downloads_url = 'https://developer.apple.com/downloads/index.action'
+      adc_login_url = XcodeDownload::AppleDeveloperCenter::LOGIN_URL
+      downloads_url = XcodeDownload::AppleDeveloperCenter::DOWNLOADS_URL
 
       begin
         # Request login response
