@@ -19,6 +19,7 @@ default_command :help
 
 global_option '--verbose'
 
+require 'xcode-download/apple-developer-center'
 require 'xcode-download/xcode-versions'
 require 'xcode-download/helpers'
 require 'xcode-download/agent'

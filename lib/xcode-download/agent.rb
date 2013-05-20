@@ -6,13 +6,11 @@ module XcodeDownload
   class Agent < ::Mechanize
     attr_accessor :username, :password, :verbose, :dry_run
 
-    HOST = "developer.apple.com"
-
     def initialize
       super
       self.user_agent_alias = 'Mac Safari'
 
-      pw = Security::InternetPassword.find(:server => HOST)
+      pw = Security::InternetPassword.find(:server => XcodeDownload::AppleDeveloperCenter::HOST)
       @username, @password = pw.attributes['acct'], pw.password if pw
     end
 
