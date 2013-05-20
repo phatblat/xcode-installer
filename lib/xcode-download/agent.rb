@@ -48,6 +48,9 @@ module XcodeDownload
           pp response
           puts cookie_jar.jar
         end
+        # Shouldn't get the login form if login was successful
+        form = response.form_with(:name => 'appleConnectForm')
+        raise UnsuccessfulAuthenticationError if form
 
         # Download
         puts "\n>>> Xcode >>>" if @verbose
