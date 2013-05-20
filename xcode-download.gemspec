@@ -13,10 +13,11 @@ Gem::Specification.new do |s|
   s.summary     = "XcodeDownload"
   s.description = "A command-line interface for the downloading Xcode"
 
-  # s.add_dependency "commander", "~> 4.1.2"
-  # s.add_dependency "terminal-table", "~> 1.4.5"
+  s.add_dependency "commander", "~> 4.1.2"
+  s.add_dependency "terminal-table", "~> 1.4.5"
   # s.add_dependency "term-ansicolor", "~> 1.0.7"
   s.add_dependency "mechanize", "~> 2.5.1"
+  s.add_dependency "mechanize-progressbar", "~> 0.2.0"
   s.add_dependency "security", "~> 0.1.2"
   # s.add_dependency "shenzhen", ">= 0.0.1"
   # s.add_dependency "certified", ">= 0.1.0"
