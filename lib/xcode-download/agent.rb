@@ -63,13 +63,14 @@ module XcodeDownload
             puts "filename: #{response.filename}"
             puts "size: #{response.header['content-length']}"
             puts "last-modified: #{response.header['last-modified']}"
+            return response.filename
           end
         else
           # GET request for actual download
           pluggable_parser.default = Mechanize::Download
           file = get(xcode_url)
           file.save
-          puts file.filename
+          return file.filename
         end
 
       rescue Mechanize::ResponseCodeError => exception

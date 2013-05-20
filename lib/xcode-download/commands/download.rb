@@ -12,6 +12,9 @@ command :'download' do |c|
 
     agent.verbose = options.verbose
     agent.dry_run = options.dry_run
-    try{agent.download(xcode_url)}
+    try {
+      filename = agent.download(xcode_url)
+      puts "File saved to: #{Dir.pwd}/#{filename}"
+    }
   end
 end
