@@ -15,7 +15,19 @@ command :'install' do |c|
     end
     dmg_file = files[0]
 
+    # Mount disk image
     mountpoint = '/Volumes/Xcode'
-    system "hdid '#{dmg_file}' -mountpoint #{mountpoint}"
+    # system "hdid '#{dmg_file}' -mountpoint #{mountpoint}"
+    system 'hdiutil attach -quiet xcode4620419895a.dmg'
+
+    # Trash existing install (so command is rerunnable)
+    destination = '/Applications/Xcode.app'
+    Trash.new.throw_out(destination)
+
+    # Copy into /Applications
+    puts 'Copying Xcode.app into Applications directory (this can take a little while)'
+    system "cp -R #{mountpoint}/Xcode.app #{destination}"
+
+    system 'hdiutil detach -quiet #{mountpoint}'
   end
 end

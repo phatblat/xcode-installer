@@ -7,6 +7,7 @@ PATH
       mechanize-progressbar (~> 0.2.0)
       security (~> 0.1.2)
       terminal-table (~> 1.4.5)
+      trash (~> 0.2.0)
 
 GEM
   remote: https://rubygems.org/
@@ -16,7 +17,7 @@ GEM
     diff-lcs (1.2.4)
     domain_name (0.5.11)
       unf (>= 0.0.5, < 1.0.0)
-    highline (1.6.18)
+    highline (1.6.19)
     mechanize (2.5.1)
       domain_name (~> 0.5, >= 0.5.1)
       mime-types (~> 1.17, >= 1.17.2)
@@ -45,6 +46,7 @@ GEM
     rspec-mocks (2.13.1)
     security (0.1.2)
     terminal-table (1.4.5)
+    trash (0.2.0)
     unf (0.1.1)
       unf_ext
     unf_ext (0.0.6)
