@@ -1,5 +1,5 @@
 command :'list' do |c|
-  c.syntax = 'xcodedl list'
+  c.syntax = 'xcode-installer list'
   c.summary = 'Lists the versions of Xcode available for downloading'
   c.description = 'Shows only the Xcode GUI versions by default. Specify "all" or "cli" to show command-line tools'
 
@@ -12,9 +12,9 @@ command :'list' do |c|
     # Show GUI when no args given
     show_gui = true if !show_all && !show_gui && !show_cli
 
-    latest = XcodeDownload::XcodeVersions::LATEST
-    gui_versions = XcodeDownload::XcodeVersions::GUI
-    cli_versions = XcodeDownload::XcodeVersions::CLI
+    latest = XcodeInstaller::XcodeVersions::LATEST
+    gui_versions = XcodeInstaller::XcodeVersions::GUI
+    cli_versions = XcodeInstaller::XcodeVersions::CLI
 
     if show_all || show_gui
       title = 'Xcode GUI'

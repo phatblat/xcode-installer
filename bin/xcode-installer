@@ -5,11 +5,14 @@ require 'terminal-table'
 # require 'term/ansicolor'
 require 'trash'
 
-require 'xcode-download'
+require 'xcode-installer'
 
 HighLine.track_eof = false # Fix for built-in Ruby
+Signal.trap("INT") {
+  exit
+}
 
-program :version, XcodeDownload::VERSION
+program :version, '0.1' #XcodeInstaller::VERSION
 program :description, 'A command-line interface for downloading Xcode'
 
 program :help, 'Author', 'Ben Chatelain <benchatelain@gmail.com>'
@@ -20,8 +23,8 @@ default_command :help
 
 global_option '--verbose'
 
-require 'xcode-download/apple-developer-center'
-require 'xcode-download/xcode-versions'
-require 'xcode-download/helpers'
-require 'xcode-download/agent'
-require 'xcode-download/commands'
+require 'xcode-installer/apple-developer-center'
+require 'xcode-installer/xcode-versions'
+require 'xcode-installer/helpers'
+require 'xcode-installer/agent'
+require 'xcode-installer/commands'

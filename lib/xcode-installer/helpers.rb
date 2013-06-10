@@ -7,11 +7,11 @@ end
 #   include Term::ANSIColor
 # end
 
-module XcodeDownload
+module XcodeInstaller
   module Helpers
     def agent
       unless @agent
-        @agent = XcodeDownload::Agent.new
+        @agent = XcodeInstaller::Agent.new
 
         @agent.instance_eval do
           def username

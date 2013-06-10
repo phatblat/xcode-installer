@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    xcode-download (0.1)
+    xcode-installer (0.1)
       commander (~> 4.1.2)
       mechanize (~> 2.5.1)
       mechanize-progressbar (~> 0.2.0)
@@ -65,4 +65,4 @@ DEPENDENCIES
   mechanize-progressbar!
   rake
   rspec
-  xcode-download!
+  xcode-installer!

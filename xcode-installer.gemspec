@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "xcode-download"
+require 'xcode-installer'
 
 Gem::Specification.new do |s|
-  s.name        = "xcode-download"
+  s.name        = "xcode-installer"
   s.license     = "MIT"
   s.authors     = ["Ben Chatelain"]
   s.email       = "benchatelain@gmail.com"
   s.homepage    = "http://phatblat.com"
-  s.version     = XcodeDownload::VERSION
+  s.version     = XcodeInstaller::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.summary     = "XcodeDownload"
+  s.summary     = "XcodeInstaller"
   s.description = "A command-line interface for the downloading Xcode"
 
   s.add_dependency "commander", "~> 4.1.2"

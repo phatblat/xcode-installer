@@ -2,7 +2,7 @@ require 'mechanize'
 require 'mechanize/progressbar'
 require 'security'
 
-module XcodeDownload
+module XcodeInstaller
   class Agent < ::Mechanize
     attr_accessor :username, :password, :verbose, :dry_run
 
@@ -10,13 +10,13 @@ module XcodeDownload
       super
       self.user_agent_alias = 'Mac Safari'
 
-      pw = Security::InternetPassword.find(:server => XcodeDownload::AppleDeveloperCenter::HOST)
+      pw = Security::InternetPassword.find(:server => XcodeInstaller::AppleDeveloperCenter::HOST)
       @username, @password = pw.attributes['acct'], pw.password if pw
     end
 
     def download(xcode_url)
-      adc_login_url = XcodeDownload::AppleDeveloperCenter::LOGIN_URL
-      downloads_url = XcodeDownload::AppleDeveloperCenter::DOWNLOADS_URL
+      adc_login_url = XcodeInstaller::AppleDeveloperCenter::LOGIN_URL
+      downloads_url = XcodeInstaller::AppleDeveloperCenter::DOWNLOADS_URL
 
       begin
         # Request login response

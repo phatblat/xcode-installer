@@ -1,4 +1,4 @@
-module XcodeDownload
+module XcodeInstaller
   module XcodeVersions
 
     LATEST = '4.6.2'

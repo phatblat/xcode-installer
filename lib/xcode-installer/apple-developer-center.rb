@@ -1,4 +1,4 @@
-module XcodeDownload
+module XcodeInstaller
   module AppleDeveloperCenter
 
     HOST = "developer.apple.com"
