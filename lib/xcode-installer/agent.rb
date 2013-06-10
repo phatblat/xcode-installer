@@ -1,5 +1,5 @@
 require 'mechanize'
-require 'mechanize/progressbar'
+# require 'mechanize/progressbar'
 require 'security'
 
 module XcodeInstaller
@@ -70,7 +70,8 @@ module XcodeInstaller
         else
           # GET request for actual download
           pluggable_parser.default = Mechanize::Download
-          self.progressbar{ file = get(xcode_url) }
+          # self.progressbar{ file = get(xcode_url) }
+          file = get(xcode_url)
           file.save
           return file.filename
         end
