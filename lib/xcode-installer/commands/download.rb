@@ -2,6 +2,7 @@ command :'download' do |c|
   c.syntax = 'xcode-installer download [options]'
   c.option '--dry-run', 'Enables a HEAD request instead of downloading the file'
   c.option '--release STRING', 'Used to specify an old or pre-release version of Xcode. Otherwise, latest GA release of Xcode is downloaded.'
+  c.option '--pre-release', 'Specifies to download the latest pre-release version of Xcode.'
   c.summary = 'Initiates the download'
   c.description = ''
 
@@ -9,7 +10,11 @@ command :'download' do |c|
     if options.release
       xcode_version = options.release
     else
-      xcode_version = XcodeInstaller::XcodeVersions::LATEST
+      if options.pre_release
+        xcode_version = XcodeInstaller::XcodeVersions::LATEST_DP
+      else
+        xcode_version = XcodeInstaller::XcodeVersions::LATEST_GA
+      end
     end
 
     if XcodeInstaller::XcodeVersions::GUI.has_key?(xcode_version)

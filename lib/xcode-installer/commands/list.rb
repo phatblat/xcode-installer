@@ -12,7 +12,7 @@ command :'list' do |c|
     # Show GUI when no args given
     show_gui = true if !show_all && !show_gui && !show_cli
 
-    latest = XcodeInstaller::XcodeVersions::LATEST
+    # latest = XcodeInstaller::XcodeVersions::LATEST
     gui_versions = XcodeInstaller::XcodeVersions::GUI
     cli_versions = XcodeInstaller::XcodeVersions::CLI
 

@@ -1,7 +1,10 @@
 module XcodeInstaller
   module XcodeVersions
 
-    LATEST = '4.6.2'
+    # General availability
+    LATEST_GA = '4.6.2'
+    # Developer preview
+    LATEST_DP = '5-DP'
 
     GUI = {
       '5-DP' => 'https://developer.apple.com/devcenter/download.action?path=/wwdc_2013/xcode_5_developer_preview/xcode_5_developer_preview.dmg', # 2013-06-10
