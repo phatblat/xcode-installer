@@ -8,9 +8,7 @@ require 'trash'
 require 'xcode-installer'
 
 HighLine.track_eof = false # Fix for built-in Ruby
-Signal.trap("INT") {
-  exit
-}
+Signal.trap("INT") { exit }
 
 program :version, '0.1' #XcodeInstaller::VERSION
 program :description, 'A command-line interface for downloading Xcode'
