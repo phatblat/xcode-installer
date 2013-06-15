@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
   s.authors     = ["Ben Chatelain"]
   s.email       = "benchatelain@gmail.com"
-  s.homepage    = "http://phatblat.com"
+  s.homepage    = "https://github.com/phatblat/xcode-installer"
   s.version     = XcodeInstaller::VERSION
   s.platform    = Gem::Platform::RUBY
   s.summary     = "XcodeInstaller"

@@ -14,7 +14,7 @@ program :version, '0.1' #XcodeInstaller::VERSION
 program :description, 'A command-line interface for downloading Xcode'
 
 program :help, 'Author', 'Ben Chatelain <benchatelain@gmail.com>'
-program :help, 'Website', 'https://phatblat.com'
+program :help, 'Website', 'https://github.com/phatblat/xcode-installer'
 program :help_formatter, :compact
 
 default_command :help
