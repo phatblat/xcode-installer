@@ -1,0 +1,21 @@
+---
+-
+  version: 5-DP
+  download_url: https://developer.apple.com/devcenter/download.action?path=/wwdc_2013/xcode_5_developer_preview/xcode_5_developer_preview.dmg
+  interface_type: gui
+-
+  version: 4.6.3
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.3/xcode4630916281a.dmg
+  interface_type: gui
+-
+  version: 4.6.2
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.2/xcode4620419895a.dmg
+  interface_type: gui
+-
+  version: 4.6.1
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.1/xcode4610419628a.dmg
+  interface_type: gui
+-
+  version: 4.6
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6/xcode460417218a.dmg
+  interface_type: gui
