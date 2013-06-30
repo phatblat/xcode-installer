@@ -13,17 +13,20 @@ command :'list' do |c|
     show_gui = true if !show_all && !show_gui && !show_cli
 
     # latest = XcodeInstaller::XcodeVersions::LATEST
-    gui_versions = XcodeInstaller::XcodeVersions::GUI
-    cli_versions = XcodeInstaller::XcodeVersions::CLI
+    mgr = XcodeInstaller::XcodeVersions::ReleaseManager.new
+
+    gui_versions = mgr.get_all('gui')
+    cli_versions = mgr.get_all('cli')
+    puts cli_versions
 
     if show_all || show_gui
       title = 'Xcode GUI'
       table = Terminal::Table.new :title => title do |t|
         t << ['Version', 'Download URL']
-        gui_versions.keys.each do |version|
+        gui_versions.each do |release|
           t << :separator
 
-          row = [version, gui_versions[version]]
+          row = [release['version'], release['download_url']]
           t << row
         end
       end
@@ -37,10 +40,10 @@ command :'list' do |c|
       title = 'Xcode Command-Line'
       table = Terminal::Table.new :title => title do |t|
         t << ['Version', 'Download URL']
-        cli_versions.keys.each do |version|
+        cli_versions.each do |release|
           t << :separator
 
-          row = [version, cli_versions[version]]
+          row = [release['version'], release['download_url']]
           t << row
         end
       end
