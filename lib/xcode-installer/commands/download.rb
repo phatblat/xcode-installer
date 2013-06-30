@@ -17,8 +17,11 @@ command :'download' do |c|
       end
     end
 
-    if XcodeInstaller::XcodeVersions::GUI.has_key?(xcode_version)
-      xcode_url = XcodeInstaller::XcodeVersions::GUI[xcode_version]
+    mgr = XcodeInstaller::XcodeVersions::ReleaseManager.new
+    release = mgr.get_release(xcode_version, options.pre_release, 'gui')
+
+    if release
+      xcode_url = release['download_url']
     else
       puts "No Xcode release with number #{xcode_version}. Use the 'list' command to see a list of known releases."
       exit
