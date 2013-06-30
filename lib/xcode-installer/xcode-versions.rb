@@ -15,7 +15,7 @@ module XcodeInstaller
         super
         # cnf = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'config.yml'))
         @data = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'xcode-versions.yml'))
-        puts data
+        # puts data
       end
 
       def get_all(interface_type)
