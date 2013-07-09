@@ -1,14 +1,21 @@
 ---
 gui:
+- version: 5-DP3
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_3/xcode_5_developer_preview_3.dmg
+  release_date: 2013-07-08
+  interface_type: gui
 - version: 5-DP2
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_2/xcode_5_developer_preview_2.dmg
+  release_date: 2013-06-24
   interface_type: gui
 - version: 5-DP
   download_url: https://developer.apple.com/devcenter/download.action?path=/wwdc_2013/xcode_5_developer_preview/xcode_5_developer_preview.dmg
   interface_type: gui
+  release_date: 2013-06-10
 - version: 4.6.3
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.3/xcode4630916281a.dmg
   interface_type: gui
+  release_date: 2013-06-13
 - version: 4.6.2
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.2/xcode4620419895a.dmg
   interface_type: gui
@@ -19,13 +26,16 @@ gui:
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6/xcode460417218a.dmg
   interface_type: gui
 cli:
+- version: 5-DP3
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_mountain_lion_for_xcode_5__july_2013/command_line_tools_os_x_mountain_lion_for_xcode_5__july_2013.dmg
+  release_date: 2013-07-08
+  interface_type: cli
 - version: 5-DP
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_mountain_lion_for_xcode_5__june_2013/command_line_tools_mountain_lion_for_xcode_5_june_2013.dmg
   release_date: 2013-06-10
   interface_type: cli
 - version: 4.6.3
   download_url: https://developer.apple.com/downloads/download.action?path=wwdc_2013/command_line_tools_os_x_v10.9_for_xcode_5__june_2013/command_line_tools_os_x_v10.9_for_xcode_5_developer_preview.dmg
-  release_date: 2013-06-14
   interface_type: cli
 - version: 4.6.2
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_mountain_lion_for_xcode__april_2013/xcode462_cltools_10_86938259a.dmg
