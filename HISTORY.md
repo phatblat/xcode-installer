@@ -1,3 +1,7 @@
+## 0.1.4 (2013-07-08)
+
+* add xcode 5 dp3 download url
+
 ## 0.1.3 (2013-06-30)
 
 * fix download --pre-release
@@ -9,7 +13,7 @@
 * move release data into yml file
 * gem version yanked due to broken download --pre-release
 
-## 0.1.1 
+## 0.1.1
 
 * add download url for xcode 4.6.3
 
