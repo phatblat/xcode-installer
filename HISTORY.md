@@ -1,3 +1,8 @@
+## 0.1.5 (2013-07-29)
+
+* add Xcode 5 dp4
+* fix --version hard-coding
+
 ## 0.1.4 (2013-07-08)
 
 * add xcode 5 dp3 download url
