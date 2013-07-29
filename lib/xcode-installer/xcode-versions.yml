@@ -1,5 +1,9 @@
 ---
 gui:
+- version: 5-DP4
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_4/xcode_5_developer_preview_4.dmg
+  release_date: 2013-07-29
+  interface_type: gui
 - version: 5-DP3
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_3/xcode_5_developer_preview_3.dmg
   release_date: 2013-07-08
@@ -26,6 +30,16 @@ gui:
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6/xcode460417218a.dmg
   interface_type: gui
 cli:
+# - version: 5-DP4
+#   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_for_os_x_mavericks_developer_preview_4/command_line_tools_for_os_x_mavericks_developer_preview_4.dmg
+#   release_date: 2013-07-29
+#   interface_type: cli
+#   os_version: 10.9
+- version: 5-DP4
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_for_os_x_mountain_lion_developer_preview_4/command_line_tools_for_os_x_mountain_lion_developer_preview_4.dmg
+  release_date: 2013-07-29
+  interface_type: cli
+  os_version: 10.8
 - version: 5-DP3
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_mountain_lion_for_xcode_5__july_2013/command_line_tools_os_x_mountain_lion_for_xcode_5__july_2013.dmg
   release_date: 2013-07-08
