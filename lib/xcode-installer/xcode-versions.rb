@@ -6,16 +6,14 @@ module XcodeInstaller
     # General availability
     LATEST_GA = '4.6.3'
     # Developer preview
-    LATEST_DP = '5-DP4'
+    LATEST_DP = '5-DP5'
 
     class ReleaseManager
       attr_accessor :data
 
       def initialize
         super
-        # cnf = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'config.yml'))
         @data = YAML::load_file(File.join(File.dirname(File.expand_path(__FILE__)), 'xcode-versions.yml'))
-        # puts data
       end
 
       def get_all(interface_type)
