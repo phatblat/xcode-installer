@@ -22,7 +22,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'commander', '~> 4.1.2'
   spec.add_dependency 'terminal-table', '~> 1.4.5'
   spec.add_dependency 'mechanize', '~> 2.5.1'
-  spec.add_dependency 'mechanize-progressbar', '~> 0.2.0'
   spec.add_dependency 'security', '~> 0.1.2'
   spec.add_dependency 'trash', '~> 0.2.0'
 
