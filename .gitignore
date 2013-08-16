@@ -3,3 +3,4 @@
 *.gem
 *.request
 http
+gem_graph.png
