@@ -6,7 +6,7 @@ module XcodeInstaller
     # General availability
     LATEST_GA = '4.6.3'
     # Developer preview
-    LATEST_DP = '5-DP5'
+    LATEST_DP = '5-DP6'
 
     class ReleaseManager
       attr_accessor :data
