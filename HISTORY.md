@@ -1,3 +1,7 @@
+## 0.1.7 (2013-08-16)
+
+* add xcode 5 dp6
+
 ## 0.1.6 (2013-08-06)
 
 * add xcode 5 dp5
@@ -31,4 +35,3 @@
 * add download urls for xcode 4.6.x
 * add download url for xcode and 5 (initial seed) used by --pre-release option
 * list and download commands working
-
