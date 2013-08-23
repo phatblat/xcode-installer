@@ -2,7 +2,7 @@
 gui:
 - version: 5-DP6
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_6/xcode_5_developer_preview_6.dmg
-  release_date: 2013-08-16
+  release_date: 2013-08-21
   interface_type: gui
 - version: 5-DP5
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_5/xcode_5_developer_preview_5.dmg
@@ -45,7 +45,7 @@ cli:
 #   os_version: 10.9
 - version: 5-DP6
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_for_os_x_mountain_lion_developer_preview_6/command_line_tools_for_os_x_mountain_lion_developer_preview_6.dmg
-  release_date: 2013-08-16
+  release_date: 2013-08-21
   interface_type: cli
   os_version: 10.8
 # - version: 5-DP5
