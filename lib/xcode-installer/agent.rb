@@ -79,9 +79,9 @@ module XcodeInstaller
       rescue Mechanize::ResponseCodeError => exception
         if exception.response_code == '403'
           response = exception.page
-          puts "status code: #{response.code}\n"
-          pp response
-          puts cookie_jar.jar
+          puts "The file doesn't exist at that location or access denied (status code: #{response.code})\n"
+          puts "\n>>> Unexpected response >>>" if @verbose
+          pp response if @verbose
         else
           raise # Some other error, re-raise
         end

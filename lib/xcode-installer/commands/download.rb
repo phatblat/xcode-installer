@@ -34,7 +34,7 @@ command :'download' do |c|
     agent.dry_run = options.dry_run
     try {
       filename = agent.download(xcode_url)
-      puts "File saved to: #{Dir.pwd}/#{filename}"
+      puts "File saved to: #{Dir.pwd}/#{filename}" if filename
     }
   end
 end
