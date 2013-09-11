@@ -1,5 +1,11 @@
 ---
 gui:
+- version: 5-GM
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_gm_seed_gu8wi7/xcode_5_gm_seed.dmg
+  release_date: 2013-09-10
+  interface_type: gui
+  size: 2046806401
+  last_modified: 'Tue, 10 Sep 2013 14:42:40 GMT'
 - version: 5-DP6
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_6/xcode_5_developer_preview_6.dmg
   release_date: 2013-08-21
@@ -38,6 +44,11 @@ gui:
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6/xcode460417218a.dmg
   interface_type: gui
 cli:
+- version: 5-GM
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_os_x_mountain_lion_for_xcode__september_2013/command_line_tools_os_x_mountain_lion_for_xcode__september_2013.dmg
+  release_date: 2013-09-10
+  interface_type: cli
+  os_version: 10.8
 # - version: 5-DP6
 #   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/command_line_tools_for_os_x_mavericks_developer_preview_6/command_line_tools_for_os_x_mavericks_developer_preview_6.dmg
 #   release_date: 2013-08-16
