@@ -1,11 +1,19 @@
 ---
 gui:
+- version: '5'
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_5/xcode_5.dmg
+  release_date: 2013-09-18
+  interface_type: gui
+  size: 2046959503
+  last_modified: 'Wed, 18 Sep 2013 17:26:17 GMT'
+  product_build_version: 5A1413
 - version: 5-GM
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_gm_seed_gu8wi7/xcode_5_gm_seed.dmg
   release_date: 2013-09-10
   interface_type: gui
   size: 2046806401
   last_modified: 'Tue, 10 Sep 2013 14:42:40 GMT'
+  product_build_version: 5A1412
 - version: 5-DP6
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_6/xcode_5_developer_preview_6.dmg
   release_date: 2013-08-21

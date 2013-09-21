@@ -4,7 +4,7 @@ module XcodeInstaller
   module XcodeVersions
 
     # General availability
-    LATEST_GA = '4.6.3'
+    LATEST_GA = '5'
     # Developer preview
     LATEST_DP = '5-GM'
 
