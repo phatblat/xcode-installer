@@ -18,30 +18,37 @@ gui:
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_6/xcode_5_developer_preview_6.dmg
   release_date: 2013-08-21
   interface_type: gui
+  product_build_version: 5A11386k
 - version: 5-DP5
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_5/xcode_5_developer_preview_5.dmg
   release_date: 2013-08-06
   interface_type: gui
+  product_build_version: 5A11365x
 - version: 5-DP4
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_4/xcode_5_developer_preview_4.dmg
   release_date: 2013-07-29
   interface_type: gui
+  product_build_version: 5A11365j
 - version: 5-DP3
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_3/xcode_5_developer_preview_3.dmg
   release_date: 2013-07-08
   interface_type: gui
+  product_build_version: 5A11344j
 - version: 5-DP2
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5_developer_preview_2/xcode_5_developer_preview_2.dmg
   release_date: 2013-06-24
   interface_type: gui
+  product_build_version: 5A11315e
 - version: 5-DP
   download_url: https://developer.apple.com/devcenter/download.action?path=/wwdc_2013/xcode_5_developer_preview/xcode_5_developer_preview.dmg
   interface_type: gui
   release_date: 2013-06-10
+  product_build_version: 5A11314m
 - version: 4.6.3
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.3/xcode4630916281a.dmg
   interface_type: gui
   release_date: 2013-06-13
+  product_build_version: '3084'
 - version: 4.6.2
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_4.6.2/xcode4620419895a.dmg
   interface_type: gui
