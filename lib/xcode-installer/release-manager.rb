@@ -15,7 +15,7 @@ module XcodeInstaller
       return list
     end
 
-    def get_release(version, include_beta, interface_type)
+    def get_release(version, include_beta)
       version ||= 'latest'
       include_beta ||= false
       interface_type ||= 'gui'

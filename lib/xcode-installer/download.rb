@@ -18,7 +18,7 @@ module XcodeInstaller
       end
 
       mgr = XcodeInstaller::ReleaseManager.new
-      release = mgr.get_release(xcode_version, options.pre_release, 'gui')
+      release = mgr.get_release(xcode_version, options.pre_release)
 
       if release
         xcode_url = release['download_url']
