@@ -1,3 +1,8 @@
+#
+# XcodeInstaller::Download (Command Class)
+#
+#
+
 module XcodeInstaller
   class Download
 
@@ -12,7 +17,7 @@ module XcodeInstaller
         end
       end
 
-      mgr = XcodeInstaller::XcodeVersions::ReleaseManager.new
+      mgr = XcodeInstaller::ReleaseManager.new
       release = mgr.get_release(xcode_version, options.pre_release, 'gui')
 
       if release
