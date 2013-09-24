@@ -13,9 +13,11 @@ require 'xcode-installer/download'
 
 module XcodeInstaller
   class Install
+    attr_accessor :release
 
     def action(args, options)
-      puts 'inside XcodeInstaller::Install.action'
+      mgr = XcodeInstaller::ReleaseManager.new
+      @release = mgr.get_release(options.release, options.pre_release)
 
       files = Dir.glob('*.dmg')
       if files.length == 0
