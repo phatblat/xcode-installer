@@ -19,6 +19,8 @@ module XcodeInstaller
       mgr = XcodeInstaller::ReleaseManager.new
       @release = mgr.get_release(options.release, options.pre_release)
 
+      puts file_name()
+
       files = Dir.glob('*.dmg')
       if files.length == 0
         puts 'No .dmg files found in current directory. Run the download command first.'
@@ -43,6 +45,10 @@ module XcodeInstaller
       system "cp -R #{mountpoint}/Xcode.app #{destination}"
 
       system 'hdiutil detach -quiet #{mountpoint}'
+    end
+
+    def file_name
+      return File.basename(@release['download_url'])
     end
 
   end
