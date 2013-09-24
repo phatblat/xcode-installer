@@ -13,41 +13,42 @@ require 'xcode-installer/download'
 
 module XcodeInstaller
   class Install
-    attr_accessor :release
+    attr_accessor :release, :version_suffix
 
     def action(args, options)
       mgr = XcodeInstaller::ReleaseManager.new
       @release = mgr.get_release(options.release, options.pre_release)
+      @version_suffix = "-#{@release['version']}"
 
-      puts file_name()
-
-      files = Dir.glob('*.dmg')
+      files = Dir.glob(dmg_file_name)
       if files.length == 0
-        puts 'No .dmg files found in current directory. Run the download command first.'
+        puts '#{dmg_file_name} file not found in current directory. Run the download command first.'
         return
       elsif files.length > 1
-        puts 'Multiple .dmg files found in the current directory. Currently no support for specifying file.'
+        puts 'Multiple #{dmg_file_name} files found in the current directory. Is this partition formatted with a case-insensitive disk format?'
         return
       end
       dmg_file = files[0]
+      puts dmg_file
 
       # Mount disk image
       mountpoint = '/Volumes/Xcode'
       # system "hdid '#{dmg_file}' -mountpoint #{mountpoint}"
-      system 'hdiutil attach -quiet xcode4620419895a.dmg'
+      system "hdiutil attach -quiet #{dmg_file}"
 
       # Trash existing install (so command is rerunnable)
-      destination = '/Applications/Xcode.app'
+      destination = "/Applications/Xcode#{version_suffix}.app"
       Trash.new.throw_out(destination)
 
+      # TODO: Dynamically determine .app file name (DP releases have the version embedded)
       # Copy into /Applications
       puts 'Copying Xcode.app into Applications directory (this can take a little while)'
       system "cp -R #{mountpoint}/Xcode.app #{destination}"
 
-      system 'hdiutil detach -quiet #{mountpoint}'
+      system "hdiutil detach -quiet #{mountpoint}"
     end
 
-    def file_name
+    def dmg_file_name
       return File.basename(@release['download_url'])
     end
 
