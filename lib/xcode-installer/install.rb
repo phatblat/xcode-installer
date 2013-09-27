@@ -94,6 +94,12 @@ module XcodeInstaller
       return output.split(" ").first
     end
 
+    ##########################################################################
+    #                                                                        #
+    # The following code was copied out of fileutils.rb from ruby 1.9.3-p392 #
+    #                                                                        #
+    ##########################################################################
+
     def cp_r(src, dest, options = {})
       # fu_check_options options, OPT_TABLE['cp_r']
       # fu_output_message "cp -r#{options[:preserve] ? 'p' : ''}#{options[:remove_destination] ? ' --remove-destination' : ''} #{[src,dest].flatten.join ' '}" if options[:verbose]
@@ -101,7 +107,6 @@ module XcodeInstaller
       options = options.dup
       options[:dereference_root] = true unless options.key?(:dereference_root)
       fu_each_src_dest(src, dest) do |s, d|
-        puts "#{dir_size(s)} #{s}"
         copy_entry s, d, options[:preserve], options[:dereference_root], options[:remove_destination]
       end
     end
@@ -173,6 +178,7 @@ module XcodeInstaller
       1024
     end
   end
+
   include StreamUtils_
   extend StreamUtils_
 
