@@ -90,7 +90,7 @@ module XcodeInstaller
     # Exmaple output of the du command:
     # 2359828 /Volumes/Xcode/Xcode.app/
     def dir_size(path)
-      output = `du -sk #{path}`
+      output = `du -sk '#{path}'`
       return output.split(" ").first
     end
 
