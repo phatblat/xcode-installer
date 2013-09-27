@@ -14,7 +14,11 @@ require 'progressbar'
 
 module XcodeInstaller
   class Install
-    attr_accessor :release, :version_suffix
+    attr_accessor :release, :version_suffix, :copied_kb
+
+    def initialize
+      @copied_kb = 0
+    end
 
     def action(args, options)
       mgr = XcodeInstaller::ReleaseManager.new
@@ -30,7 +34,8 @@ module XcodeInstaller
         return
       end
       dmg_file = files[0]
-      puts dmg_file
+      # TODO: if verbose...
+      # puts dmg_file
 
       # Mount disk image
       mountpoint = '/Volumes/Xcode'
@@ -63,6 +68,8 @@ module XcodeInstaller
 
       cp_r(source_path, destination_path, {})
 
+      puts @copied_kb
+
       # in_name     = "src_file.txt"
       # out_name    = "dest_file.txt"
 
@@ -94,6 +101,10 @@ module XcodeInstaller
       return output.split(" ").first
     end
 
+    def accumulate_kbytes(kb)
+      @copied_kb = @copied_kb + kb.to_i
+    end
+
     ##########################################################################
     #                                                                        #
     # The following code was copied out of fileutils.rb from ruby 1.9.3-p392 #
@@ -114,6 +125,10 @@ module XcodeInstaller
     def copy_entry(src, dest, preserve = false, dereference_root = false, remove_destination = false)
       Entry_.new(src, nil, dereference_root).traverse do |ent|
         destent = Entry_.new(dest, ent.rel, false)
+
+        # puts "#{dir_size(ent.path)} #{ent.path}"
+        accumulate_kbytes(dir_size(ent.path))
+
         File.unlink destent.path if remove_destination && File.file?(destent.path)
         ent.copy destent.path
         ent.copy_metadata destent.path if preserve
