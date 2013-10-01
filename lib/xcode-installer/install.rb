@@ -10,11 +10,11 @@
 #
 
 require 'xcode-installer/download'
-require 'progressbar'
+require 'ruby-progressbar'
 
 module XcodeInstaller
   class Install
-    attr_accessor :release, :version_suffix, :copied_kb
+    attr_accessor :release, :version_suffix, :copied_kb, :progress_bar
 
     def initialize
       @copied_kb = 0
@@ -66,8 +66,13 @@ module XcodeInstaller
       total_kb = dir_size(source_path)
       puts total_kb
 
+      puts File.stat(source_path).size
+
+      @progress_bar = ProgressBar.create(:title => "Copying", :starting_at => 0, :total => nil)
+      @progress_bar.log 'hello'
       cp_r(source_path, destination_path, {})
 
+      block_size = File.stat(source_path).blksize
       puts @copied_kb
 
       # in_name     = "src_file.txt"
@@ -98,11 +103,13 @@ module XcodeInstaller
     # 2359828 /Volumes/Xcode/Xcode.app/
     def dir_size(path)
       output = `du -sk '#{path}'`
-      return output.split(" ").first
+      return output.split(" ").first.to_i * 1024
     end
 
-    def accumulate_kbytes(kb)
-      @copied_kb = @copied_kb + kb.to_i
+    def accumulate_kbytes(path)
+      @progress_bar.log path
+      @progress_bar.increment
+      @copied_kb += File.stat(path).size if File.exists?(path)
     end
 
     ##########################################################################
@@ -127,7 +134,7 @@ module XcodeInstaller
         destent = Entry_.new(dest, ent.rel, false)
 
         # puts "#{dir_size(ent.path)} #{ent.path}"
-        accumulate_kbytes(dir_size(ent.path))
+        accumulate_kbytes(ent.path)
 
         File.unlink destent.path if remove_destination && File.file?(destent.path)
         ent.copy destent.path
