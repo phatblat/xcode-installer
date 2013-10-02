@@ -14,7 +14,7 @@ require 'ruby-progressbar'
 
 module XcodeInstaller
   class Install
-    attr_accessor :release, :version_suffix, :copied_kb, :progress_bar
+    attr_accessor :release, :version_suffix, :copied_kb, :copied_file_count, :progress_bar
 
     def initialize
       @copied_kb = 0
@@ -58,22 +58,23 @@ module XcodeInstaller
 
     def copy(source_path, destination_path)
       # Copy into /Applications
-      puts 'Copying Xcode.app into Applications directory (this can take a little while)'
+      # puts 'Copying Xcode.app into Applications directory (this can take a little while)'
       # TODO: wrap debug output with verbose checks
       puts "#{source_path} -> #{destination_path}"
       # system "cp -R #{source_path} #{destination_path}"
 
       total_kb = dir_size(source_path)
-      puts total_kb
+      # puts total_kb
 
-      puts File.stat(source_path).size
+      # puts File.stat(source_path).size
 
-      @progress_bar = ProgressBar.create(:title => "Copying", :starting_at => 0, :total => nil)
-      @progress_bar.log 'hello'
+      @progress_bar = ProgressBar.create(:title => "Copying", :starting_at => 0, :total => @release['app_size_extracted'])
+      @copied_file_count = 0
       cp_r(source_path, destination_path, {})
+      @progress_bar.finish
 
-      block_size = File.stat(source_path).blksize
-      puts @copied_kb
+      # block_size = File.stat(source_path).blksize
+      # puts @copied_kb
 
       # in_name     = "src_file.txt"
       # out_name    = "dest_file.txt"
@@ -102,14 +103,18 @@ module XcodeInstaller
     # Exmaple output of the du command:
     # 2359828 /Volumes/Xcode/Xcode.app/
     def dir_size(path)
-      output = `du -sk '#{path}'`
+      output = `du -sk '#{path}' 2> /dev/null`
       return output.split(" ").first.to_i * 1024
     end
 
     def accumulate_kbytes(path)
-      @progress_bar.log path
-      @progress_bar.increment
-      @copied_kb += File.stat(path).size if File.exists?(path)
+      # @progress_bar.log path
+      # @progress_bar.increment
+      # @copied_kb += File.stat(path).size if File.exists?(path)
+      @copied_file_count++
+      if @copied_file_count.modulo(10000) == 0
+        @progress_bar.progress = dir_size("/Applications/Xcode-5.app")
+      end
     end
 
     ##########################################################################
