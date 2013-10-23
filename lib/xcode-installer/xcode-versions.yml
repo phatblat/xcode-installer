@@ -1,5 +1,12 @@
 ---
 gui:
+- version: '5.0.1'
+  download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_5.0.1/xcode_5.0.1.dmg
+  release_date: 2013-10-22
+  interface_type: gui
+  size: 2194212232
+  last_modified: 'Tue, 22 Oct 2013 23:43:12 GMT'
+  product_build_version: 5A2053
 - version: '5'
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_5/xcode_5.dmg
   release_date: 2013-09-18
