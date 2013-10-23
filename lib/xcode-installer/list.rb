@@ -13,8 +13,7 @@ module XcodeInstaller
       # Show GUI when no args given
       show_gui = true if !show_all && !show_gui && !show_cli
 
-      # latest = XcodeInstaller::XcodeVersions::LATEST
-      mgr = XcodeInstaller::XcodeVersions::ReleaseManager.new
+      mgr = XcodeInstaller::ReleaseManager.new
 
       gui_versions = mgr.get_all('gui')
       cli_versions = mgr.get_all('cli')
