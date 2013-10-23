@@ -1,6 +1,11 @@
+## 0.2.0 (2013-10-22)
+
+* install command working (shows progress bar)
+* add xcode 5.0.1
+
 ## 0.1.9 (2013-09-20)
 
-* add xcode 5 (ga)
+* add xcode 5
 
 ## 0.1.8 (2013-09-10)
 
