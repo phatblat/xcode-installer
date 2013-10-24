@@ -1,4 +1,5 @@
 .DS_Store
+*.bak
 *.dmg
 *.gem
 *.request
