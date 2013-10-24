@@ -1,3 +1,7 @@
+## 0.2.1 (2013-10-24)
+
+* faster file copy (and working progress bar) for install command
+
 ## 0.2.0 (2013-10-22)
 
 * install command working (shows progress bar)
