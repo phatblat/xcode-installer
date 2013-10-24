@@ -14,13 +14,14 @@ require 'ruby-progressbar'
 
 module XcodeInstaller
   class Install
-    attr_accessor :release, :version_suffix, :copied_kb, :copied_file_count, :progress_bar
+    attr_accessor :release, :version_suffix, :copied_kb, :copied_file_count, :progress_bar, :verbose
 
     def initialize
       @copied_kb = 0
     end
 
     def action(args, options)
+      @verbose = options.verbose
       mgr = XcodeInstaller::ReleaseManager.new
       @release = mgr.get_release(options.release, options.pre_release)
       @version_suffix = "-#{@release['version']}"
@@ -34,8 +35,7 @@ module XcodeInstaller
         return
       end
       dmg_file = files[0]
-      # TODO: if verbose...
-      # puts dmg_file
+      puts dmg_file if @verbose
 
       # Mount disk image
       mountpoint = '/Volumes/Xcode'
@@ -49,7 +49,7 @@ module XcodeInstaller
       # TODO: Dynamically determine .app file name (DP releases have the version embedded)
       copy("#{mountpoint}/Xcode.app", destination)
 
-      # system "hdiutil detach -quiet #{mountpoint}"
+      system "hdiutil detach -quiet #{mountpoint}"
     end
 
     def dmg_file_name
@@ -59,45 +59,14 @@ module XcodeInstaller
     def copy(source_path, destination_path)
       # Copy into /Applications
       # puts 'Copying Xcode.app into Applications directory (this can take a little while)'
-      # TODO: wrap debug output with verbose checks
       puts "#{source_path} -> #{destination_path}"
-      # system "cp -R #{source_path} #{destination_path}"
 
-      total_kb = dir_size(source_path)
-      # puts total_kb
-
-      # puts File.stat(source_path).size
-
-      @progress_bar = ProgressBar.create(:title => "Copying", :starting_at => 0, :total => @release['app_size_extracted'])
+      total_files = `find #{source_path} -print | wc -l`
+      puts "total_files: #{total_files}" if @verbose
+      @progress_bar = ProgressBar.create(:title => "Copying", :starting_at => 0, :total => total_files.to_i)
       @copied_file_count = 0
       cp_r(source_path, destination_path, {})
       @progress_bar.finish
-
-      # block_size = File.stat(source_path).blksize
-      # puts @copied_kb
-
-      # in_name     = "src_file.txt"
-      # out_name    = "dest_file.txt"
-
-      # in_file     = File.new(in_name, "r")
-      # out_file    = File.new(out_name, "w")
-
-      # in_size     = File.size(in_name)
-      # batch_bytes = ( in_size / 100 ).ceil
-      # total       = 0
-      # p_bar       = ProgressBar.new('Copying', 100)
-
-      # buffer      = in_file.sysread(batch_bytes)
-      # while total < in_size do
-      #  out_file.syswrite(buffer)
-      #  p_bar.inc
-      #  total += batch_bytes
-      #  if (in_size - total) < batch_bytes
-      #    batch_bytes = (in_size - total)
-      #  end
-      #  buffer = in_file.sysread(batch_bytes)
-      # end
-      # p_bar.finish
     end
 
     # Exmaple output of the du command:
@@ -108,13 +77,8 @@ module XcodeInstaller
     end
 
     def accumulate_kbytes(path)
-      # @progress_bar.log path
-      # @progress_bar.increment
-      # @copied_kb += File.stat(path).size if File.exists?(path)
-      @copied_file_count++
-      if @copied_file_count.modulo(10000) == 0
-        @progress_bar.progress = dir_size("/Applications/Xcode-5.app")
-      end
+      @copied_file_count = copied_file_count + 1
+      @progress_bar.progress = @copied_file_count.to_i
     end
 
     ##########################################################################
