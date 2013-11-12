@@ -10,7 +10,7 @@ GIT
 PATH
   remote: .
   specs:
-    xcode-installer (0.1.6)
+    xcode-installer (0.2.2)
       commander (~> 4.1.2)
       mechanize (~> 2.5.1)
       security (~> 0.1.2)
@@ -20,12 +20,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    commander (4.1.4)
+    commander (4.1.5)
       highline (~> 1.6.11)
     diff-lcs (1.2.4)
     domain_name (0.5.12)
       unf (>= 0.0.5, < 1.0.0)
-    highline (1.6.19)
+    highline (1.6.20)
     mechanize (2.5.1)
       domain_name (~> 0.5, >= 0.5.1)
       mime-types (~> 1.17, >= 1.17.2)
@@ -53,7 +53,7 @@ GEM
     rspec-mocks (2.14.2)
     security (0.1.2)
     terminal-table (1.4.5)
-    trash (0.2.0)
+    trash (0.2.1)
     unf (0.1.1)
       unf_ext
     unf_ext (0.0.6)
