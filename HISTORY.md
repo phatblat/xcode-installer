@@ -1,3 +1,7 @@
+## 0.2.2 (2013-11-11)
+
+* xcode 5.0.2
+
 ## 0.2.1 (2013-10-24)
 
 * faster file copy (and working progress bar) for install command
