@@ -42,12 +42,14 @@ module XcodeInstaller
       # system "hdid '#{dmg_file}' -mountpoint #{mountpoint}"
       system "hdiutil attach -quiet #{dmg_file}"
 
+      app_bundle_name = @release['app_bundle_name'] ||= "Xcode.app"
+
       # Trash existing install (so command is rerunnable)
       destination = "/Applications/Xcode#{version_suffix}.app"
       Trash.new.throw_out(destination)
 
       # TODO: Dynamically determine .app file name (DP releases have the version embedded)
-      copy("#{mountpoint}/Xcode.app", destination)
+      copy("#{mountpoint}/#{app_bundle_name}", destination)
 
       system "hdiutil detach -quiet #{mountpoint}"
     end
