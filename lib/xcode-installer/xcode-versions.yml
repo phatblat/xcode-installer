@@ -1,12 +1,19 @@
 ---
 gui:
+- version: '5.1-DP'
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_developer_preview_om3n2z/xcode_5.1_developer_preview.dmg
+  release_date: 2013-11-18
+  interface_type: gui
+  last_modified: 'Mon, 18 Nov 2013 04:20:59 GMT'
+  product_build_version: 5B45j
+  app_bundle_name: Xcode51-DP.app
 - version: '5.0.2'
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_5.0.2/xcode_5.0.2.dmg
   release_date: 2013-11-11
   interface_type: gui
   size: 2195476273
   last_modified: 'Mon, 11 Nov 2013 18:32:20 GMT'
-  product_build_version:
+  product_build_version: 5A3005
 - version: '5.0.2-GM'
   download_url: https://developer.apple.com/downloads/download.action?path=Developer_Tools/xcode_5.0.2_gm_seed/xcode_5.0.2_gm_seed.dmg
   release_date: 2013-11-05
