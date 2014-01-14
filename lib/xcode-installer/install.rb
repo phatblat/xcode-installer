@@ -28,10 +28,10 @@ module XcodeInstaller
 
       files = Dir.glob(dmg_file_name)
       if files.length == 0
-        puts '#{dmg_file_name} file not found in current directory. Run the download command first.'
+        puts "#{dmg_file_name} file not found in current directory. Run the download command first."
         return
       elsif files.length > 1
-        puts 'Multiple #{dmg_file_name} files found in the current directory. Is this partition formatted with a case-insensitive disk format?'
+        puts "Multiple #{dmg_file_name} files found in the current directory. Is this partition formatted with a case-insensitive disk format?"
         return
       end
       dmg_file = files[0]
