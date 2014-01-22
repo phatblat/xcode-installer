@@ -1,5 +1,12 @@
 ---
 gui:
+- version: '5.1-Beta4'
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_beta_4_hte6yx/xcode_5.1_beta_4.dmg
+  release_date: 2014-01-20
+  interface_type: gui
+  last_modified: ''
+  product_build_version:
+  app_bundle_name: Xcode51-Beta4.app
 - version: '5.1-Beta3'
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_beta_3_dv6nap/xcode_5.1_beta_3.dmg
   release_date: 2014-01-07
