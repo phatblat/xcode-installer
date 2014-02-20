@@ -1,11 +1,18 @@
 ---
 gui:
+- version: '5.1-Beta5'
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_beta_5_qmbqi3/xcode_5.1_beta5.dmg
+  release_date: 2014-02-04
+  interface_type: gui
+  last_modified: 'Tue, 04 Feb 2014 04:13:00 GMT'
+  product_build_version: 5B103i
+  app_bundle_name: Xcode51-Beta5.app
 - version: '5.1-Beta4'
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_beta_4_hte6yx/xcode_5.1_beta_4.dmg
   release_date: 2014-01-20
   interface_type: gui
   last_modified: ''
-  product_build_version:
+  product_build_version: 5B90f
   app_bundle_name: Xcode51-Beta4.app
 - version: '5.1-Beta3'
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1_beta_3_dv6nap/xcode_5.1_beta_3.dmg
