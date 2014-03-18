@@ -1,3 +1,7 @@
+## 0.3.1 (2014-03-10)
+
+* enable cli download and install
+
 ## 0.3.0 (2014-03-10)
 
 * add xcode 5.1
