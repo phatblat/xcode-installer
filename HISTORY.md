@@ -1,3 +1,8 @@
+## 0.3.0 (2014-03-10)
+
+* add xcode 5.1
+* include release date in list output
+
 ## 0.2.7 (2014-02-19)
 
 * add xcode 5.1 beta5
