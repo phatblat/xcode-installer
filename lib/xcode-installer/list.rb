@@ -21,11 +21,11 @@ module XcodeInstaller
       if show_all || show_gui
         title = 'Xcode GUI'
         table = Terminal::Table.new :title => title do |t|
-          t << ['Version', 'Download URL']
+          t << ['Version', 'Release Date', 'Download URL']
           gui_versions.each do |release|
             t << :separator
 
-            row = [release['version'], release['download_url']]
+            row = [release['version'], release['release_date'], release['download_url']]
             t << row
           end
         end
@@ -38,11 +38,11 @@ module XcodeInstaller
       if show_all || show_cli
         title = 'Xcode Command-Line'
         table = Terminal::Table.new :title => title do |t|
-          t << ['Version', 'Download URL']
+          t << ['Version', 'Release Date', 'Download URL']
           cli_versions.each do |release|
             t << :separator
 
-            row = [release['version'], release['download_url']]
+            row = [release['version'], release['release_date'], release['download_url']]
             t << row
           end
         end
