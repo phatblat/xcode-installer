@@ -9,10 +9,12 @@ module XcodeInstaller
     attr_accessor :release
 
     def action(args, options)
-      mgr = XcodeInstaller::ReleaseManager.new
-      @release = mgr.get_release(options.release, options.pre_release)
+      download_type = (args.include? 'cli') ? 'cli' : 'gui'
 
-      if release
+      mgr = XcodeInstaller::ReleaseManager.new
+      @release = mgr.get_release(options.release, options.pre_release, download_type)
+
+      if @release
         xcode_url = @release['download_url']
       else
         puts "No Xcode release with number #{options.release}. Use the 'list' command to see a list of known releases."

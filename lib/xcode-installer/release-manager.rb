@@ -15,7 +15,7 @@ module XcodeInstaller
       return list
     end
 
-    def get_release(version, include_beta)
+    def get_release(version, include_beta, interface_type)
       version ||= 'latest'
       include_beta ||= false
       interface_type ||= 'gui'
@@ -26,8 +26,13 @@ module XcodeInstaller
       elsif version == 'latest'
         version = LATEST_GA
       end
+
+      os_version = `sw_vers -productVersion`
+      # Drop the patch number
+      os_version = os_version.match(/\d+\.\d+/)[0]
+
       list.each { |release|
-        if release['version'] == version
+        if release['version'].to_s == version && release['os_version'].to_s == os_version
           return release
         end
       }
