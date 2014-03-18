@@ -21,9 +21,11 @@ module XcodeInstaller
     end
 
     def action(args, options)
+      install_type = (args.include? 'cli') ? 'cli' : 'gui'
+
       @verbose = options.verbose
       mgr = XcodeInstaller::ReleaseManager.new
-      @release = mgr.get_release(options.release, options.pre_release)
+      @release = mgr.get_release(options.release, options.pre_release, install_type)
       @version_suffix = "-#{@release['version']}"
 
       files = Dir.glob(dmg_file_name)
@@ -42,14 +44,23 @@ module XcodeInstaller
       # system "hdid '#{dmg_file}' -mountpoint #{mountpoint}"
       system "hdiutil attach -quiet #{dmg_file}"
 
-      app_bundle_name = @release['app_bundle_name'] ||= "Xcode.app"
+      #
+      # Install
+      #
+      if (install_type == 'gui')
+        app_bundle_name = @release['app_bundle_name'] ||= "Xcode.app"
 
-      # Trash existing install (so command is rerunnable)
-      destination = "/Applications/Xcode#{version_suffix}.app"
-      Trash.new.throw_out(destination)
+        # Trash existing install (so command is rerunnable)
+        destination = "/Applications/Xcode#{version_suffix}.app"
+        Trash.new.throw_out(destination)
 
-      # TODO: Dynamically determine .app file name (DP releases have the version embedded)
-      copy("#{mountpoint}/#{app_bundle_name}", destination)
+        # TODO: Dynamically determine .app file name (DP releases have the version embedded)
+        copy("#{mountpoint}/#{app_bundle_name}", destination)
+      else
+        # CLI install
+        mountpoint = '/Volumes/Command\ Line\ Developer\ Tools'
+        system "sudo installer -package #{mountpoint}/*.pkg -target /"
+      end
 
       system "hdiutil detach -quiet #{mountpoint}"
     end
