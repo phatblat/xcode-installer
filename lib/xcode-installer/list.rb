@@ -35,13 +35,19 @@ module XcodeInstaller
       # Extra line between tables
       puts if show_all
 
+      os_version = `sw_vers -productVersion`
+      # Drop the patch number
+      os_version = os_version.match(/\d+\.\d+/)[0]
+
       if show_all || show_cli
         title = 'Xcode Command-Line'
         table = Terminal::Table.new :title => title do |t|
           t << ['Version', 'Release Date', 'Download URL']
           cli_versions.each do |release|
-            t << :separator
+            # Skip releases for a different OS version
+            next unless release['os_version'].to_s == os_version
 
+            t << :separator
             row = [release['version'], release['release_date'], release['download_url']]
             t << row
           end
