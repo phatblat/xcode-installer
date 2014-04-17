@@ -18,7 +18,7 @@ PATH
       trash (~> 0.2.0)
 
 GEM
-  remote: https://rubygems.org/
+  remote: http://mirror1.prod.rhcloud.com/mirror/ruby/
   specs:
     commander (4.1.6)
       highline (~> 1.6.11)

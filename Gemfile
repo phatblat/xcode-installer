@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+#source 'https://rubygems.org'
+source 'http://mirror1.prod.rhcloud.com/mirror/ruby/'
 
 gemspec
 
