@@ -1,5 +1,5 @@
 require 'mechanize'
-require 'mechanize/progressbar'
+require 'mechanize-progrezzbar'
 require 'security'
 
 module XcodeInstaller

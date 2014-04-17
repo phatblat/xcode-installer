@@ -1,16 +1,16 @@
 GIT
-  remote: git://github.com/phatblat/Mechanize-ProgressBar.git
-  revision: 78abca7b143f6af4fce6ab6f1a7ac3cc4fcc907c
+  remote: https://github.com/phatblat/Mechanize-ProgressBar.git
+  revision: d7c1db95e5c9fe554d378131dddce816b2fefc02
   branch: devel
   specs:
-    mechanize-progressbar (0.2.1)
+    mechanize-progrezzbar (0.2.1)
       mechanize (>= 1.0.0)
       progressbar (>= 0.9.0)
 
 PATH
   remote: .
   specs:
-    xcode-installer (0.2.2)
+    xcode-installer (0.3.1)
       commander (~> 4.1.2)
       mechanize (~> 2.5.1)
       security (~> 0.1.2)
@@ -20,12 +20,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    commander (4.1.5)
+    commander (4.1.6)
       highline (~> 1.6.11)
     diff-lcs (1.2.4)
-    domain_name (0.5.12)
+    domain_name (0.5.18)
       unf (>= 0.0.5, < 1.0.0)
-    highline (1.6.20)
+    highline (1.6.21)
     mechanize (2.5.1)
       domain_name (~> 0.5, >= 0.5.1)
       mime-types (~> 1.17, >= 1.17.2)
@@ -34,14 +34,14 @@ GEM
       nokogiri (~> 1.4)
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (~> 0.0, >= 0.0.9)
-    mime-types (1.23)
-    mini_portile (0.5.1)
+    mime-types (1.25.1)
+    mini_portile (0.5.3)
     net-http-digest_auth (1.4)
-    net-http-persistent (2.9)
-    nokogiri (1.6.0)
+    net-http-persistent (2.9.4)
+    nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
-    progressbar (0.20.0)
+    progressbar (0.21.0)
     rake (10.1.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
@@ -54,7 +54,7 @@ GEM
     security (0.1.2)
     terminal-table (1.4.5)
     trash (0.2.1)
-    unf (0.1.1)
+    unf (0.1.4)
       unf_ext
     unf_ext (0.0.6)
     webrobots (0.1.1)
@@ -64,7 +64,7 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.3)
-  mechanize-progressbar!
+  mechanize-progrezzbar!
   rake
   rspec
   xcode-installer!
