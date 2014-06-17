@@ -1,5 +1,11 @@
 ---
 gui:
+- version: '5.1.1'
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1.1/xcode_5.1.1.dmg
+  release_date: 2014-04-10
+  interface_type: gui
+  last_modified: 'Thu, 10 Apr 2014 20:45:27 GMT'
+  product_build_version: 5B1008
 - version: '5.1'
   download_url: https://developer.apple.com/devcenter/download.action?path=Developer_Tools/xcode_5.1/xcode_5.1.dmg
   release_date: 2014-03-10
