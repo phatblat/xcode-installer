@@ -32,8 +32,15 @@ module XcodeInstaller
       os_version = os_version.match(/\d+\.\d+/)[0]
 
       list.each { |release|
-        if release['version'].to_s == version && release['os_version'].to_s == os_version
-          return release
+        if release['version'].to_s == version
+          if release['interface_type'] == 'gui'
+            # gui releases aren't limited by OS
+            return release
+          elsif release['interface_type'] == 'cli' && release['os_version'].to_s == os_version
+            return release
+          else
+            puts "Unknown interface type #{release['interface_type']}"
+          end
         end
       }
     end
