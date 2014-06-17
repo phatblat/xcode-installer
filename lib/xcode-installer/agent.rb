@@ -3,7 +3,7 @@ require 'security'
 
 module XcodeInstaller
   class Agent < ::Mechanize
-    attr_accessor :username, :password, :verbose, :dry_run
+    attr_accessor :username, :password, :verbose, :dry_run, :show_progress
 
     def initialize
       super
@@ -67,10 +67,12 @@ module XcodeInstaller
             return response.filename
           end
         else
-          require 'mechanize-progrezzbar'
           # GET request for actual download
           pluggable_parser.default = Mechanize::Download
-          self.progressbar{ file = get(xcode_url) }
+          if @show_progress
+            require 'mechanize-progrezzbar'
+            self.progressbar{ file = get(xcode_url) }
+          end
           file = get(xcode_url)
           file.save
           return file.filename

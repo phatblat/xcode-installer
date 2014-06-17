@@ -26,6 +26,7 @@ module XcodeInstaller
 
       agent.verbose = options.verbose
       agent.dry_run = options.dry_run
+      agent.show_progress = options.show_progress
       try {
         filename = agent.download(xcode_url)
         puts "File saved to: #{Dir.pwd}/#{filename}" if filename
