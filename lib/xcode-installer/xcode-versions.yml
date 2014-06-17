@@ -1,5 +1,17 @@
 ---
 gui:
+- version: '6-Beta2'
+  download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_6_beta_2_i8z2ly/xcode_6_beta_2.dmg
+  release_date: 2014-06-17
+  interface_type: gui
+  last_modified: 'Tue, 17 Jun 2014 01:41:27 GMT'
+  product_build_version: 6A216f
+- version: '6-Beta1'
+  download_url: 
+  release_date: 2014-06-02
+  interface_type: gui
+  last_modified: ''
+  product_build_version: 6A215l
 - version: '5.1.1'
   download_url: https://developer.apple.com/devcenter/download.action?path=/Developer_Tools/xcode_5.1.1/xcode_5.1.1.dmg
   release_date: 2014-04-10
